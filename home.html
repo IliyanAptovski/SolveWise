@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SolveWise — Начало</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container nav-wrapper">
+            <h1 class="logo">SolveWise</h1>
+            <button class="mobile-menu-toggle" aria-label="Отвори меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <a href="home.html" class="active">Начало</a>
+                <a href="topics.html">Теми</a>
+                <a href="summary.html">Резюме</a>
+                <div id="authNav">
+                    <!-- Dynamically filled by auth.js -->
+                    <a href="index.html" class="auth-link">Вход / Регистрация</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container hero">
+        <div class="hero-text">
+            <h2>Учете по-лесно, разбирайте повече.</h2>
+            <p class="subtitle">Кратки тестове, ясни обяснения и проследяване на напредъка.</p>
+            <div class="btn-row">
+                <a href="topics.html" class="btn primary">Започни с темите</a>
+                <a href="summary.html" class="btn outline">Резултати</a>
+            </div>
+        </div>
+
+        <div class="hero-preview">
+            <div class="preview-box">
+                <h3>Примерен прогрес</h3>
+                <p>Дроби — 45%</p>
+                <div class="progress">
+                    <span style="--progress:45%"></span>
+                </div>
+                <p>Уравнения — 20%</p>
+                <div class="progress">
+                    <span style="--progress:20%"></span>
+                </div>
+                <p>Геометрия — 0%</p>
+                <div class="progress">
+                    <span style="--progress:0%"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 — Отворен код • MIT лиценз</p>
+        </div>
+    </footer>
+    <script src="js/mobile_menu_toggle.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>
