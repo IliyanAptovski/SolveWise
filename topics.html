@@ -31,68 +31,38 @@
             <p>Изберете тема, за да започнете тест</p>
         </div>
         
-        <input type="text" placeholder="Търси тема..." class="search">
+        <div class="search-filter-container">
+            <input type="text" placeholder="Търси тема..." class="search" id="searchInput">
+            <select class="category-filter" id="categoryFilter">
+                <option value="all">Всички категории</option>
+                <option value="Аритметика">Аритметика</option>
+                <option value="Алгебра">Алгебра</option>
+                <option value="Геометрия">Геометрия</option>
+            </select>
+        </div>
         
-        <div class="topics-grid">
-            <a href="quiz.html" class="topic-card">
-                <div class="topic-icon">½</div>
-                <h3>Дроби</h3>
-                <p>Операции с дроби и сравнения</p>
-                <div class="progress-container">
-                    <div class="progress-label">45% завършено</div>
-                    <div class="progress"><span style="--progress:45%"></span></div>
-                </div>
-            </a>
-
-            <a href="quiz.html" class="topic-card">
-                <div class="topic-icon">x+y</div>
-                <h3>Уравнения</h3>
-                <p>Линейни уравнения и задачи</p>
-                <div class="progress-container">
-                    <div class="progress-label">20% завършено</div>
-                    <div class="progress"><span style="--progress:20%"></span></div>
-                </div>
-            </a>
-
-            <a href="quiz.html" class="topic-card">
-                <div class="topic-icon">△</div>
-                <h3>Геометрия</h3>
-                <p>Триъгълници и теореми</p>
-                <div class="progress-container">
-                    <div class="progress-label">0% завършено</div>
-                    <div class="progress"><span style="--progress:0%"></span></div>
-                </div>
-            </a>
-            
-            <a href="quiz.html" class="topic-card">
-                <div class="topic-icon">%</div>
-                <h3>Проценти</h3>
-                <p>Изчисляване на проценти и задачи</p>
-                <div class="progress-container">
-                    <div class="progress-label">0% завършено</div>
-                    <div class="progress"><span style="--progress:0%"></span></div>
-                </div>
-            </a>
-            
-            <a href="quiz.html" class="topic-card">
-                <div class="topic-icon">a²</div>
-                <h3>Алгебра</h3>
-                <p>Алгебрични изрази и преобразувания</p>
-                <div class="progress-container">
-                    <div class="progress-label">0% завършено</div>
-                    <div class="progress"><span style="--progress:0%"></span></div>
-                </div>
-            </a>
-            
-            <a href="quiz.html" class="topic-card">
-                <div class="topic-icon">π</div>
-                <h3>Кръгове</h3>
-                <p>Окръжности, дъги и сектори</p>
-                <div class="progress-container">
-                    <div class="progress-label">0% завършено</div>
-                    <div class="progress"><span style="--progress:0%"></span></div>
-                </div>
-            </a>
+        <div class="topics-stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalTopics">0</span>
+                <span class="stat-label">Общо теми</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="completedTopics">0</span>
+                <span class="stat-label">Започнати теми</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="totalQuestions">0</span>
+                <span class="stat-label">Общо въпроси</span>
+            </div>
+        </div>
+        
+        <div class="topics-grid" id="topicsGrid">
+            <!-- Topics will be loaded dynamically here -->
+            <div class="loading-message">Зареждане на темите...</div>
+        </div>
+        
+        <div class="no-results" id="noResults" style="display: none;">
+            <p>Няма намерени теми, отговарящи на критериите за търсене.</p>
         </div>
     </main>
 
@@ -101,6 +71,7 @@
             <p>© 2025 — MIT лиценз</p>
         </div>
     </footer>
-    <script src="js/mobile_menu_toggle.js"></script>
+
+    <script src="js/topics.js"></script>
 </body>
 </html>
