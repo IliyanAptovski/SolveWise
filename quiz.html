@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Викторина — SolveWise</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container nav-wrapper">
+            <h1 class="logo">SolveWise</h1>
+            <button class="mobile-menu-toggle" aria-label="Отвори меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <a href="index.html">Начало</a>
+                <a href="topics.html">Теми</a>
+                <a href="summary.html">Резюме</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container quiz-container">
+        <div class="quiz-header">
+            <h2>Дроби</h2>
+            <div class="quiz-progress-bar">
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 10%"></div>
+                </div>
+                <span>1 от 10</span>
+            </div>
+        </div>
+        
+        <div class="quiz-content">
+            <div class="quiz-card">
+                <p class="question-number">Въпрос 1 от 10</p>
+                <h2 class="question-text">Кое е по-голямо: 3/5 или 4/7?</h2>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="option1" name="question" value="1">
+                        <label for="option1">3/5</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="option2" name="question" value="2">
+                        <label for="option2">4/7</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="option3" name="question" value="3">
+                        <label for="option3">Равни са</label>
+                    </div>
+                </div>
+                <div class="btn-row space">
+                    <button class="btn outline">Назад</button>
+                    <button class="btn primary">Напред</button>
+                </div>
+            </div>
+
+            <aside class="quiz-progress">
+                <h3>Напредък</h3>
+                <ul class="progress-list">
+                    <li class="completed">Въпрос 1 ✔</li>
+                    <li class="incorrect">Въпрос 2 ✖</li>
+                    <li class="current">Въпрос 3 ─</li>
+                    <li>Въпрос 4</li>
+                    <li>Въпрос 5</li>
+                    <li>Въпрос 6</li>
+                    <li>Въпрос 7</li>
+                    <li>Въпрос 8</li>
+                    <li>Въпрос 9</li>
+                    <li>Въпрос 10</li>
+                </ul>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 — MIT лиценз</p>
+        </div>
+    </footer>
+    <script src="js/mobile_menu_toggle.js"></script>
+</body>
+</html>
