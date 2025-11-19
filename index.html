@@ -4,81 +4,132 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SolveWise — Начало</title>
+    <title>SolveWise — Регистрация</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/landing.css">
 </head>
 
 <body>
     <header class="header">
         <div class="container nav-wrapper">
             <h1 class="logo">SolveWise</h1>
-            <button class="mobile-menu-toggle" aria-label="Отвори меню">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav class="nav">
-                <a href="index.html" class="active">Начало</a>
-                <a href="topics.html">Теми</a>
-                <a href="summary.html">Резюме</a>
-            </nav>
         </div>
     </header>
 
-    <main class="container hero">
-        <div class="hero-text">
-            <h2>Учете по-лесно, разбирайте повече.</h2>
-            <p class="subtitle">Кратки тестове, ясни обяснения и проследяване на напредъка.</p>
-            <div class="btn-row">
-                <a href="topics.html" class="btn primary">Започни с темите</a>
-                <a href="summary.html" class="btn outline">Резултати</a>
+    <main class="container landing">
+        <div class="landing-hero">
+            <h2>Добре дошли в SolveWise</h2>
+            <p class="subtitle">Изберете вашата роля, за да продължите</p>
+        </div>
+
+        <div class="role-selection">
+            <div class="role-card" id="studentCard">
+                <div class="role-icon">🎓</div>
+                <h3>Ученик</h3>
+                <p>Решавайте задачи, следете напредъка си и се подобрявайте в математиката</p>
+                <div class="role-features">
+                    <span>✓ Кратки тестове</span>
+                    <span>✓ Проследяване на напредъка</span>
+                    <span>✓ Ясни обяснения</span>
+                </div>
+                <button class="btn primary select-role" data-role="student">Избери ученик</button>
+            </div>
+
+            <div class="role-card" id="teacherCard">
+                <div class="role-icon">👩‍🏫</div>
+                <h3>Учител</h3>
+                <p>Създавайте класове, следете напредъка на учениците и въвеждайте резултати</p>
+                <div class="role-features">
+                    <span>✓ Управление на класове</span>
+                    <span>✓ Статистики на ученици</span>
+                    <span>✓ Въвеждане на резултати</span>
+                </div>
+                <button class="btn outline select-role" data-role="teacher">Избери учител</button>
             </div>
         </div>
 
-        <div class="hero-preview">
-            <div class="preview-box">
-                <h3>Примерен прогрес</h3>
-                <p>Дроби — 45%</p>
-                <div class="progress">
-                    <span style="--progress:45%"></span>
+        <div class="auth-section" id="authSection" style="display: none;">
+            <div class="auth-container">
+                <h3 id="authTitle">Регистрация като ученик</h3>
+
+                <form class="auth-form" id="authForm">
+                    <div class="form-group">
+                        <label for="name">Име и фамилия</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Имейл</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Парола (минимум 6 символа)</label>
+                        <input type="password" id="password" name="password" minlength="6" required>
+                    </div>
+
+                    <button type="submit" class="btn primary full-width" id="submitBtn">
+                        Регистрирай се
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>или</span>
                 </div>
-                <p>Уравнения — 20%</p>
-                <div class="progress">
-                    <span style="--progress:20%"></span>
-                </div>
-                <p>Геометрия — 0%</p>
-                <div class="progress">
-                    <span style="--progress:0%"></span>
+
+                <button class="btn google-btn full-width" id="googleAuthBtn">
+                    <span class="google-icon">G</span>
+                    Продължи с Google
+                </button>
+
+                <div class="auth-switch">
+                    <p>Вече имате профил? <a href="#" id="switchToLogin">Влезте в акаунта си</a></p>
                 </div>
             </div>
         </div>
+
+        <section class="preview-section">
+            <h3>Какво ще намерите в платформата</h3>
+            <div class="preview-cards">
+                <div class="preview-card">
+                    <div class="card-icon">📚</div>
+                    <h4>Ясни обяснения</h4>
+                    <p>Всички въпроси и обяснения са на български език.</p>
+                </div>
+                <div class="preview-card">
+                    <div class="card-icon">💾</div>
+                    <h4>Запазване на напредъка</h4>
+                    <p>Вашите резултати се съхраняват автоматично.</p>
+                </div>
+                <div class="preview-card">
+                    <div class="card-icon">📱</div>
+                    <h4>Гъвкаво обучение</h4>
+                    <p>Подходящо за телефон, компютър и лаптоп.</p>
+                </div>
+            </div>
+        </section>
     </main>
-
-    <section class="container cards">
-        <div class="card">
-            <div class="card-icon">📚</div>
-            <h3>Ясни обяснения</h3>
-            <p>Всички въпроси и обяснения са на български език.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon">💾</div>
-            <h3>Запазване на напредъка</h3>
-            <p>Вашите резултати се съхраняват локално – без регистрация.</p>
-        </div>
-        <div class="card">
-            <div class="card-icon">📱</div>
-            <h3>Гъвкаво обучение</h3>
-            <p>Подходящо за телефон, компютър и лаптоп.</p>
-        </div>
-    </section>
 
     <footer class="footer">
         <div class="container">
             <p>© 2025 — Отворен код • MIT лиценз</p>
         </div>
     </footer>
-    <script src="js/mobile_menu_toggle.js"></script>
+
+    <div class="modal" id="messageModal" style="display: none;">
+        <div class="modal-content">
+            <h3 id="modalTitle">Съобщение</h3>
+            <p id="modalMessage"></p>
+            <button class="btn primary" id="modalClose">Затвори</button>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script type="module" src="js/firebase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/landing.js"></script>
 </body>
 
 </html>
