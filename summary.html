@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Резюме — SolveWise</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/summary.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container nav-wrapper">
+            <h1 class="logo">SolveWise</h1>
+            <button class="mobile-menu-toggle" aria-label="Отвори меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <a href="index.html">Начало</a>
+                <a href="topics.html">Теми</a>
+                <a href="summary.html" class="active">Резюме</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container summary">
+        <div class="page-header">
+            <h2>Вашите резултати</h2>
+            <p>Преглед на напредъка и постиженията</p>
+        </div>
+        
+        <div class="summary-grid">
+            <div class="card summary-card">
+                <h2>Общ резултат</h2>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span>78%</span>
+                    </div>
+                    <p><strong>78%</strong> верни отговори</p>
+                </div>
+                <div class="progress">
+                    <span style="--progress:78%"></span>
+                </div>
+            </div>
+
+            <div class="card summary-card">
+                <h2>Силни и слаби теми</h2>
+                <ul class="topic-list">
+                    <li>
+                        <span class="topic-name">Дроби</span>
+                        <span class="topic-score">90%</span>
+                        <div class="progress"><span style="--progress:90%"></span></div>
+                    </li>
+                    <li>
+                        <span class="topic-name">Уравнения</span>
+                        <span class="topic-score">70%</span>
+                        <div class="progress"><span style="--progress:70%"></span></div>
+                    </li>
+                    <li>
+                        <span class="topic-name">Геометрия</span>
+                        <span class="topic-score">50%</span>
+                        <div class="progress"><span style="--progress:50%"></span></div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="card summary-card">
+                <h2>Статистика</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value">12</span>
+                        <span class="stat-label">Завършени теми</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">156</span>
+                        <span class="stat-label">Отговорени въпроси</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">78%</span>
+                        <span class="stat-label">Средна точност</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">5h 42m</span>
+                        <span class="stat-label">Общо време</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card summary-card">
+                <h2>Последна активност</h2>
+                <ul class="activity-list">
+                    <li>
+                        <span class="activity-icon">📚</span>
+                        <div class="activity-details">
+                            <p>Завършихте тест по Дроби</p>
+                            <span class="activity-time">Преди 2 часа</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="activity-icon">📊</span>
+                        <div class="activity-details">
+                            <p>Прегледахте резултатите си</p>
+                            <span class="activity-time">Преди 1 ден</span>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="activity-icon">🎯</span>
+                        <div class="activity-details">
+                            <p>Започнахте тест по Уравнения</p>
+                            <span class="activity-time">Преди 2 дни</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 — MIT лиценз</p>
+        </div>
+    </footer>
+    <script src="js/mobile_menu_toggle.js"></script>
+</body>
+</html>
