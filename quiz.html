@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="bg">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,60 +22,41 @@
                 <a href="home.html">Начало</a>
                 <a href="topics.html">Теми</a>
                 <a href="summary.html">Резюме</a>
+                <div id="authNav">
+                    <!-- Dynamically filled by auth.js -->
+                    <a href="index.html" class="auth-link">Вход / Регистрация</a>
+                </div>
             </nav>
         </div>
     </header>
 
     <main class="container quiz-container">
         <div class="quiz-header">
-            <h2>Дроби</h2>
+            <h2 id="quizTopicTitle">Зареждане...</h2>
             <div class="quiz-progress-bar">
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 10%"></div>
+                    <div class="progress-fill" style="width: 0%"></div>
                 </div>
-                <span>1 от 10</span>
+                <span>0 от 0</span>
             </div>
         </div>
-        
+
         <div class="quiz-content">
             <div class="quiz-card">
-                <p class="question-number">Въпрос 1 от 10</p>
-                <h2 class="question-text">Кое е по-голямо: 3/5 или 4/7?</h2>
-                <div class="options">
-                    <div class="option">
-                        <input type="radio" id="option1" name="question" value="1">
-                        <label for="option1">3/5</label>
-                    </div>
-                    <div class="option">
-                        <input type="radio" id="option2" name="question" value="2">
-                        <label for="option2">4/7</label>
-                    </div>
-                    <div class="option">
-                        <input type="radio" id="option3" name="question" value="3">
-                        <label for="option3">Равни са</label>
-                    </div>
+                <div id="currentQuestion">
+                    <!-- Questions will be loaded here dynamically -->
+                    <p>Зареждане на въпроси...</p>
                 </div>
-                <div class="btn-row space">
-                    <button class="btn outline">Назад</button>
-                    <button class="btn primary">Напред</button>
+
+                <div class="quiz-actions">
+                    <div class="btn-row space">
+                        <button class="btn outline" id="exitBtn">Изход от теста</button>
+                        <button class="btn" id="prevBtn" disabled>Назад</button>
+                        <button class="btn primary" id="nextBtn" disabled>Напред</button>
+                        <button class="btn primary" id="submitQuiz" style="display: none;">Предай теста</button>
+                    </div>
                 </div>
             </div>
-
-            <aside class="quiz-progress">
-                <h3>Напредък</h3>
-                <ul class="progress-list">
-                    <li class="completed">Въпрос 1 ✔</li>
-                    <li class="incorrect">Въпрос 2 ✖</li>
-                    <li class="current">Въпрос 3 ─</li>
-                    <li>Въпрос 4</li>
-                    <li>Въпрос 5</li>
-                    <li>Въпрос 6</li>
-                    <li>Въпрос 7</li>
-                    <li>Въпрос 8</li>
-                    <li>Въпрос 9</li>
-                    <li>Въпрос 10</li>
-                </ul>
-            </aside>
         </div>
     </main>
 
@@ -88,5 +70,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/quiz.js"></script>
 </body>
+
 </html>
