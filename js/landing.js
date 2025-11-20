@@ -62,16 +62,28 @@ class LandingPage {
         });
         document.getElementById(role + 'Card').classList.add('selected');
 
-        // Show auth section
-        document.getElementById('authSection').style.display = 'block';
-        
-        // Update auth title
-        const action = this.isLoginMode ? 'Вход' : 'Регистрация';
-        document.getElementById('authTitle').textContent = `${action} като ${role === 'student' ? 'ученик' : 'учител'}`;
-        document.getElementById('submitBtn').textContent = this.isLoginMode ? 'Влез' : 'Регистрирай се';
+        // If teacher is selected, show coming soon message immediately
+        if (role === 'teacher') {
+            this.showMessage(
+                'Функционалност в разработка', 
+                'Регистрацията за учители ще бъде налична скоро. Благодарим за интереса!'
+            );
+            return;
+        }
 
-        // Scroll to auth section
-        document.getElementById('authSection').scrollIntoView({ behavior: 'smooth' });
+        // For student, show the auth section
+        if (role === 'student') {
+            // Show auth section
+            document.getElementById('authSection').style.display = 'block';
+            
+            // Update auth title
+            const action = this.isLoginMode ? 'Вход' : 'Регистрация';
+            document.getElementById('authTitle').textContent = `${action} като ученик`;
+            document.getElementById('submitBtn').textContent = this.isLoginMode ? 'Влез' : 'Регистрирай се';
+
+            // Scroll to auth section
+            document.getElementById('authSection').scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     toggleAuthMode() {
@@ -83,13 +95,13 @@ class LandingPage {
 
         if (this.isLoginMode) {
             // Switch to login mode
-            document.getElementById('authTitle').textContent = `Вход като ${this.selectedRole === 'student' ? 'ученик' : 'учител'}`;
+            document.getElementById('authTitle').textContent = 'Вход като ученик';
             submitBtn.textContent = 'Влез';
             switchLink.textContent = 'Нямате профил? Регистрирайте се';
             nameField.style.display = 'none';
         } else {
             // Switch to signup mode
-            document.getElementById('authTitle').textContent = `Регистрация като ${this.selectedRole === 'student' ? 'ученик' : 'учител'}`;
+            document.getElementById('authTitle').textContent = 'Регистрация като ученик';
             submitBtn.textContent = 'Регистрирай се';
             switchLink.textContent = 'Вече имате профил? Влезте в акаунта си';
             nameField.style.display = 'block';
@@ -97,14 +109,15 @@ class LandingPage {
     }
 
     async handleAuth() {
+        // Only students can proceed with registration/login
+        if (this.selectedRole !== 'student') {
+            this.showMessage('Грешка', 'Моля, изберете ученик, за да продължите.');
+            return;
+        }
+
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
         const name = document.getElementById('name').value;
-
-        if (!this.selectedRole) {
-            this.showMessage('Грешка', 'Моля, изберете роля преди да продължите.');
-            return;
-        }
 
         const submitBtn = document.getElementById('submitBtn');
         submitBtn.disabled = true;
@@ -119,17 +132,12 @@ class LandingPage {
                 if (!name.trim()) {
                     throw new Error('Моля, въведете вашето име.');
                 }
-                result = await authManager.signUp(email, password, name, this.selectedRole);
+                result = await authManager.signUp(email, password, name, 'student');
             }
 
             if (result.success) {
-                if (this.selectedRole === 'teacher') {
-                    this.showMessage('Функционалност в разработка', 'Регистрацията за учители ще бъде налична скоро. Благодарим за интереса!');
-                    await authManager.signOut();
-                } else {
-                    // Student - redirect to home page
-                    window.location.href = 'home.html';
-                }
+                // Student - redirect to home page
+                window.location.href = 'home.html';
             } else {
                 throw new Error(result.error);
             }
@@ -142,8 +150,9 @@ class LandingPage {
     }
 
     async handleGoogleAuth() {
-        if (!this.selectedRole) {
-            this.showMessage('Грешка', 'Моля, изберете роля преди да продължите.');
+        // Only students can proceed with Google auth
+        if (this.selectedRole !== 'student') {
+            this.showMessage('Грешка', 'Моля, изберете ученик, за да продължите.');
             return;
         }
 
@@ -152,15 +161,10 @@ class LandingPage {
         googleBtn.innerHTML = '<span class="google-icon">G</span> Зареждане...';
 
         try {
-            const result = await authManager.signInWithGoogle(this.selectedRole);
+            const result = await authManager.signInWithGoogle('student');
             
             if (result.success) {
-                if (this.selectedRole === 'teacher') {
-                    this.showMessage('Функционалност в разработка', 'Регистрацията за учители ще бъде налична скоро. Благодарим за интереса!');
-                    await authManager.signOut();
-                } else {
-                    window.location.href = 'home.html';
-                }
+                window.location.href = 'home.html';
             } else {
                 throw new Error(result.error);
             }
@@ -193,6 +197,12 @@ class LandingPage {
 
     hideModal() {
         document.getElementById('messageModal').style.display = 'none';
+        
+        // If teacher modal was shown, deselect the teacher card
+        if (this.selectedRole === 'teacher') {
+            document.getElementById('teacherCard').classList.remove('selected');
+            this.selectedRole = null;
+        }
     }
 }
 

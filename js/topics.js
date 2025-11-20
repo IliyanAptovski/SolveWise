@@ -46,9 +46,9 @@ class TopicsManager {
     filterTopics() {
         this.filteredTopics = this.topics.filter(topic => {
             const matchesSearch = topic.title.toLowerCase().includes(this.searchTerm) ||
-                topic.description.toLowerCase().includes(this.searchTerm);
-            const matchesCategory = this.currentCategory === 'all' ||
-                topic.category === this.currentCategory;
+                                topic.description.toLowerCase().includes(this.searchTerm);
+            const matchesCategory = this.currentCategory === 'all' || 
+                                  topic.category === this.currentCategory;
             return matchesSearch && matchesCategory;
         });
 
@@ -136,15 +136,25 @@ class TopicsManager {
     startQuiz(topicId) {
         // Store the selected topic in localStorage
         localStorage.setItem('currentTopic', topicId);
-
+        
         // Redirect to quiz page
         window.location.href = `quiz.html?topic=${topicId}`;
     }
 
     restartQuiz(topicId) {
         if (confirm('Сигурни ли сте, че искате да започнете теста отначало? Това ще изтрие текущия ви напредък.')) {
-            // Here you would typically make an API call to reset progress
-            // For now, we'll just start the quiz
+            // Reset progress in localStorage
+            const userProgress = JSON.parse(localStorage.getItem('userProgress') || '{}');
+            if (userProgress[topicId]) {
+                userProgress[topicId] = {
+                    score: 0,
+                    completedQuestions: 0,
+                    mistakes: {}
+                };
+                localStorage.setItem('userProgress', JSON.stringify(userProgress));
+            }
+            
+            // Start the quiz
             this.startQuiz(topicId);
         }
     }

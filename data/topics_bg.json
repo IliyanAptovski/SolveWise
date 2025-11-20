@@ -3,32 +3,12 @@
     {
       "id": "fractions",
       "title": "Дроби",
-      "description": "Правилни, неправилни и смесени дроби",
+      "description": "Операции с дроби и сравнения",
       "icon": "½",
       "progress": 0,
-      "totalQuestions": 10,
+      "totalQuestions": 5,
       "completedQuestions": 0,
-      "category": "Аритметика"
-    },
-    {
-      "id": "percentages",
-      "title": "Проценти",
-      "description": "Изчисляване на проценти и задачи",
-      "icon": "%",
-      "progress": 0,
-      "totalQuestions": 6,
-      "completedQuestions": 0,
-      "category": "Аритметика"
-    },
-    {
-      "id": "equations",
-      "title": "Уравнения",
-      "description": "Линейни уравнения и задачи",
-      "icon": "x+y",
-      "progress": 0,
-      "totalQuestions": 8,
-      "completedQuestions": 0,
-      "category": "Алгебра"
+      "category": "Математика"
     },
     {
       "id": "geometry",
@@ -36,9 +16,29 @@
       "description": "Триъгълници и теореми",
       "icon": "△",
       "progress": 0,
-      "totalQuestions": 12,
+      "totalQuestions": 5,
       "completedQuestions": 0,
       "category": "Геометрия"
+    },
+    {
+      "id": "percentages",
+      "title": "Проценти",
+      "description": "Изчисляване на проценти и задачи",
+      "icon": "%",
+      "progress": 0,
+      "totalQuestions": 5,
+      "completedQuestions": 0,
+      "category": "Математика"
+    },
+    {
+      "id": "linear-equations",
+      "title": "Линейни уравнения",
+      "description": "Решаване на линейни уравнения",
+      "icon": "x+y",
+      "progress": 0,
+      "totalQuestions": 5,
+      "completedQuestions": 0,
+      "category": "Алгебра"
     }
   ]
 }
