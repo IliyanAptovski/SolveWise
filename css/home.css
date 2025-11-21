@@ -71,6 +71,60 @@
     opacity: 0.8;
 }
 
+/* Home Page Progress Styles */
+.topic-progress-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.topic-progress-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.topic-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.topic-name {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.topic-percent {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.topic-stats {
+    font-size: 0.85rem;
+    color: var(--dark);
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+.overall-stats {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid var(--light-gray);
+}
+
+.stat-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.stat-line:last-child {
+    margin-bottom: 0;
+}
+
 /* Home Page Responsive */
 @media (max-width: 768px) {
     .hero {
