@@ -8,7 +8,7 @@
       "progress": 0,
       "totalQuestions": 5,
       "completedQuestions": 0,
-      "category": "Математика"
+      "category": "Аритметика"
     },
     {
       "id": "geometry",
@@ -28,7 +28,7 @@
       "progress": 0,
       "totalQuestions": 5,
       "completedQuestions": 0,
-      "category": "Математика"
+      "category": "Аритметика"
     },
     {
       "id": "linear-equations",

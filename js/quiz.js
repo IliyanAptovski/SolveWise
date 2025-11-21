@@ -1,4 +1,3 @@
-// Quiz Management
 class QuizManager {
     constructor() {
         this.currentTopic = null;
@@ -6,6 +5,7 @@ class QuizManager {
         this.currentQuestionIndex = 0;
         this.userAnswers = [];
         this.quizStarted = false;
+        this.isRetake = false;
         this.init();
     }
 
@@ -19,6 +19,7 @@ class QuizManager {
         // Get topic from URL parameter
         const urlParams = new URLSearchParams(window.location.search);
         const topicId = urlParams.get('topic') || localStorage.getItem('currentTopic');
+        this.isRetake = urlParams.get('retake') === 'true';
 
         if (!topicId) {
             this.showError('Не е избрана тема. Моля, върнете се към страницата с теми.');
@@ -39,7 +40,7 @@ class QuizManager {
             document.getElementById('quizTopicTitle').textContent = topicData.title;
 
             // Load user progress
-            this.loadUserProgress();
+            await this.loadUserProgress();
 
         } catch (error) {
             console.error('Грешка при зареждане на въпросите:', error);
@@ -47,17 +48,35 @@ class QuizManager {
         }
     }
 
-    loadUserProgress() {
-        const userProgress = JSON.parse(localStorage.getItem('userProgress') || '{}');
-        const topicProgress = userProgress[this.currentTopic] || {
-            score: 0,
-            completedQuestions: 0,
-            mistakes: {}
-        };
+    async loadUserProgress() {
+        // Reset progress if this is a retake
+        if (this.isRetake) {
+            this.currentQuestionIndex = 0;
+            this.userAnswers = [];
+            return;
+        }
+
+        // Try to load from Firebase first, then fallback to localStorage
+        let topicProgress = null;
+
+        if (typeof authManager !== 'undefined' && authManager.currentUser) {
+            try {
+                const snapshot = await database.ref(`users/${authManager.currentUser.uid}/scores/${this.currentTopic}`).once('value');
+                topicProgress = snapshot.val();
+            } catch (error) {
+                console.error('Грешка при зареждане от Firebase:', error);
+            }
+        }
+
+        // If no Firebase data, try localStorage
+        if (!topicProgress) {
+            const userProgress = JSON.parse(localStorage.getItem('userProgress') || '{}');
+            topicProgress = userProgress[this.currentTopic];
+        }
 
         // If user has progress, start from where they left off
-        if (topicProgress.completedQuestions > 0) {
-            this.currentQuestionIndex = topicProgress.completedQuestions;
+        if (topicProgress && topicProgress.completedQuestions > 0) {
+            this.currentQuestionIndex = Math.min(topicProgress.completedQuestions, this.questions.length - 1);
             this.userAnswers = topicProgress.answers || [];
         }
     }
@@ -265,11 +284,25 @@ class QuizManager {
                     </div>
                     <p>${Math.round((score / this.questions.length) * 100)}% верни отговори</p>
                 </div>
+                <div class="results-details">
+                    <div class="result-stat">
+                        <span class="stat-label">Верни отговори:</span>
+                        <span class="stat-value">${score}</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="stat-label">Грешки:</span>
+                        <span class="stat-value">${this.questions.length - score}</span>
+                    </div>
+                    <div class="result-stat">
+                        <span class="stat-label">Общо въпроси:</span>
+                        <span class="stat-value">${this.questions.length}</span>
+                    </div>
+                </div>
                 <div class="results-actions">
                     <button class="btn primary" onclick="window.location.href='topics.html'">
                         Към всички теми
                     </button>
-                    <button class="btn outline" onclick="location.reload()">
+                    <button class="btn outline" onclick="window.location.href='quiz.html?topic=${this.currentTopic}&retake=true'">
                         Направи теста отново
                     </button>
                     <button class="btn" onclick="window.location.href='summary.html'">

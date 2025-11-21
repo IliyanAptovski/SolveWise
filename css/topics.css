@@ -159,6 +159,52 @@
     opacity: 0.7;
 }
 
+/* Completed badge */
+.completed-badge {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Result stats in quiz */
+.results-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.result-stat {
+    background: var(--light-bg);
+    padding: 15px;
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--dark);
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.score-circle.large {
+    width: 120px;
+    height: 120px;
+    font-size: 1.8rem;
+}
+
 .topic-actions {
     display: flex;
     gap: 12px; /* Increased from 10px */
