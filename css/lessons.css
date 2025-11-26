@@ -1,0 +1,360 @@
+/* Lessons Page Styles */
+.lessons {
+    padding: 40px 0;
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.lesson-card {
+    background: var(--white);
+    padding: 30px 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--light-gray);
+}
+
+.lesson-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.lesson-card h3 {
+    margin-bottom: 10px;
+    color: var(--dark);
+    font-size: 1.4rem;
+}
+
+.lesson-card p {
+    margin-bottom: 20px;
+    color: var(--dark);
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.lesson-card .btn {
+    width: 100%;
+}
+
+/* Lesson Container */
+.lesson-container {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--light-gray);
+}
+
+.lesson-header h2 {
+    color: var(--dark);
+    margin: 0;
+}
+
+/* Interactive Components */
+.interactive-slider {
+    margin: 25px 0;
+}
+
+.slider-container {
+    background: var(--light-bg);
+    padding: 20px;
+    border-radius: var(--radius);
+    margin: 15px 0;
+}
+
+.slider-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.slider {
+    width: 100%;
+    height: 8px;
+    background: var(--light-gray);
+    border-radius: 4px;
+    outline: none;
+    margin: 15px 0;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.visualization {
+    background: var(--light-bg);
+    padding: 25px;
+    border-radius: var(--radius);
+    margin: 20px 0;
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fraction-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.fraction-bar {
+    width: 200px;
+    height: 30px;
+    background: var(--light-gray);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.fraction-fill {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.geometry-shape {
+    width: 150px;
+    height: 150px;
+    background: var(--primary);
+    opacity: 0.8;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.shape-circle {
+    border-radius: 50%;
+}
+
+.shape-triangle {
+    width: 0;
+    height: 0;
+    background: transparent !important;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 150px solid var(--primary);
+}
+
+.shape-rectangle {
+    /* Default is rectangle */
+}
+
+.percentage-bar {
+    width: 100%;
+    height: 40px;
+    background: var(--light-gray);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    margin: 15px 0;
+}
+
+.percentage-fill {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.equation-balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.balance-scale {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.balance-side {
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: var(--radius);
+    min-width: 100px;
+    text-align: center;
+}
+
+.balance-beam {
+    width: 4px;
+    height: 80px;
+    background: var(--dark);
+    position: relative;
+}
+
+.balance-beam::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -48px;
+    right: -48px;
+    height: 4px;
+    background: var(--dark);
+    transform: translateY(-50%);
+}
+
+/* Lesson Steps */
+.lesson-step {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--primary);
+}
+
+.lesson-step h4 {
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.lesson-step p {
+    margin-bottom: 15px;
+    color: var(--dark);
+    opacity: 0.9;
+}
+
+/* Interactive Controls */
+.interactive-controls {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.control-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.control-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.control-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--light-gray);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.control-input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.value-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary);
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px;
+    background: var(--light-bg);
+    border-radius: var(--radius);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lessons-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lesson-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .fraction-visual {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .balance-scale {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .balance-beam {
+        width: 80px;
+        height: 4px;
+    }
+
+    .balance-beam::before {
+        top: -48px;
+        bottom: -48px;
+        left: 50%;
+        right: auto;
+        width: 4px;
+        height: 96px;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 576px) {
+    .lesson-container {
+        padding: 20px 15px;
+    }
+
+    .visualization {
+        padding: 15px;
+    }
+
+    .geometry-shape {
+        width: 120px;
+        height: 120px;
+    }
+
+    .shape-triangle {
+        border-left: 60px solid transparent;
+        border-right: 60px solid transparent;
+        border-bottom: 120px solid var(--primary);
+    }
+}

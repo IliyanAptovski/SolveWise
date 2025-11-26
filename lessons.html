@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="bg">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Уроци — SolveWise</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/lessons.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container nav-wrapper">
+            <h1 class="logo">SolveWise</h1>
+            <button class="mobile-menu-toggle" aria-label="Отвори меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav">
+                <a href="home.html">Начало</a>
+                <a href="topics.html">Теми</a>
+                <a href="lessons.html" class="active">Уроци</a>
+                <a href="summary.html">Резюме</a>
+                <div id="authNav">
+                    <!-- Dynamically filled by auth.js -->
+                    <a href="index.html" class="auth-link">Вход / Регистрация</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container lessons">
+        <div class="page-header">
+            <h2>Интерактивни уроци</h2>
+            <p>Научете чрез игра и интерактивни примери</p>
+        </div>
+
+        <div class="lessons-grid">
+            <div class="lesson-card" data-lesson="fractions">
+                <div class="lesson-icon">½</div>
+                <h3>Дроби</h3>
+                <p>Разберете дробите чрез визуализация и сравнение</p>
+                <button class="btn primary start-lesson">Започни урока</button>
+            </div>
+
+            <div class="lesson-card" data-lesson="geometry">
+                <div class="lesson-icon">△</div>
+                <h3>Геометрия</h3>
+                <p>Изследвайте форми и техните свойства</p>
+                <button class="btn primary start-lesson">Започни урока</button>
+            </div>
+
+            <div class="lesson-card" data-lesson="percentages">
+                <div class="lesson-icon">%</div>
+                <h3>Проценти</h3>
+                <p>Научете процентите чрез реални примери</p>
+                <button class="btn primary start-lesson">Започни урока</button>
+            </div>
+
+            <div class="lesson-card" data-lesson="linear-equations">
+                <div class="lesson-icon">x+y</div>
+                <h3>Линейни уравнения</h3>
+                <p>Решавайте уравнения с визуална помощ</p>
+                <button class="btn primary start-lesson">Започни урока</button>
+            </div>
+        </div>
+
+        <!-- Lesson Container -->
+        <div class="lesson-container" id="lessonContainer" style="display: none;">
+            <div class="lesson-header">
+                <button class="btn outline back-to-lessons" id="backToLessons">← Назад към уроците</button>
+                <h2 id="lessonTitle">Урок</h2>
+            </div>
+
+            <div class="lesson-content" id="lessonContent">
+                <!-- Lesson content will be loaded here dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 SolveWise • MIT лиценз</p>
+        </div>
+    </footer>
+
+    <script src="js/mobile_menu_toggle.js"></script>
+    <script src="js/lessons.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+
+</html>
